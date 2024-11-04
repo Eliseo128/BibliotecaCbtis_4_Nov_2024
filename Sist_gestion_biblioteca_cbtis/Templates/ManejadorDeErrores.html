@@ -1,0 +1,25 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management</title>
+    <link rel="stylesheet" href="{% static 'css/buscar.css' %}">
+    {% csrf_token %}
+</head>
+<body>
+    {% include 'encabezado.html' %}
+
+    <section class="section">
+        <h2>{{title}}</h2>
+        <p>{{message}}</p>
+        <a href="{% url 'inicio' %}" class="home-button">Ir Inicio</a>
+    </section>
+    {% include 'piepagina.html' %}
+</body>
+</html>
+
+ 

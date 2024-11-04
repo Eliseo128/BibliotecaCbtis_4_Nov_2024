@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Libro</title>
+    <link rel="stylesheet" href="{% static 'css/verLibro.css' %}">
+    {% csrf_token %}
+</head>
+<body>
+    {% include 'encabezado.html' %}
+
+    <div class="book-details-container">
+        <div class="book-details">
+            <h1 class="book-title">{{ libro.titulo }}</h1>
+            <div class="book-info">
+                <p><strong>Libro ID:</strong> {{ libro.id }}</p>
+                <p><strong>Autor:</strong> {{ libro.autor }}</p>
+                <p><strong>Genero:</strong> {{ libro.genero }}</p>
+                <p><strong>Numero de copias:</strong> {{ libro.copias }}</p>
+            </div>
+            <a href="{% url 'inicio' %}" class="home-button">Ir inicio</a>
+        </div>
+    </div>
+
+    {% include 'piepagina.html' %}
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administracion Biblioteca - Libros</title>
+    <link rel="stylesheet" href="{% static 'css/listaLibro.css' %}">
+    {% csrf_token %}
+</head>
+<body>
+    {% include 'encabezado.html' %}
+    <div class="book-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Genero</th>
+                    <th>Vista</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for libro in lista_libro %}
+                <tr>
+                    <td>{{ libro.titulo }}</td>
+                    <td>{{ libro.autor }}</td>
+                    <td>{{ libro.genero }}</td>
+                    <td><a href="{% url 'verlibro' libro_id=libro.id %}" class="view-button">Ver</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% include 'piepagina.html' %}
+</body>
+</html>

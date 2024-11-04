@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca CBTIS 128 - Inicio</title>
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+    {% csrf_token %}
+</head>
+<body>
+    {% include 'encabezado.html' %}
+
+    <section class="section">
+        <h2>Listado de Libros</h2>
+        <p>Ver todos los libros en la biblioteca.</p>
+        <a href="{% url 'verListaLibro' %}" class="action-button">Vamos a la lista</a>
+    </section>
+
+    <section class="section">
+        <h2>Agregar Libro</h2>
+        <p>Agregar Nuevo Libro a la biblioteca.</p>
+        <a href="{% url 'agregarLibro' %}" class="action-button">Agregar Libro</a>
+    </section>
+
+    <section class="section">
+        <h2>Borrar Libro</h2>
+        <p>Borrar un libro exixtente de la biblioteca.</p>
+        <a href="{% url 'borrarLibro' %}" class="action-button">Borrar libro</a>
+    </section>
+
+    <section class="section">
+        <h2>Ver un Libro</h2>
+        <p>Ver informacion detallada del libro.</p>
+        <a href="{% url 'buscarLibro' %}" class="action-button">Ver Libro</a>
+    </section>
+
+    {% include 'piepagina.html' %}
+    <script src="{% static 'js/inicio.js' %}"></script>
+</body>
+</html>

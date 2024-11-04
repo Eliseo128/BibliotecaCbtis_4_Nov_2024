@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Titulo por default {% endblock %}</title>
+    {% block stylesheet %}{% static 'css/style.css' %}{% endblock %}
+    <!-- Falta style.css oooojoooo-->
+    {% csrf_token %}
+</head>
+<body>
+    {% include 'encabezado.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'piepagina.html' %}
+</body>
+</html>
